@@ -1,0 +1,9 @@
+build:
+  pypirc:
+    local:
+      repository: http://172.16.21.109:8080/artifactory/api/pypi/pypi-virtual
+      username: jenkins
+      password: $PYPIAUTH
+  script:
+    - export HOME=$(pwd)
+    - python setup.py sdist upload -r local
